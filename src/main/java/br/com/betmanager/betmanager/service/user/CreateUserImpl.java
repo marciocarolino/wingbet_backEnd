@@ -1,11 +1,15 @@
 package br.com.betmanager.betmanager.service.user;
 
 import br.com.betmanager.betmanager.model.CreateUerModel;
+import br.com.betmanager.betmanager.repository.ICreateUerRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public class CreateUserImpl implements ICreateUserService {
+
+    private ICreateUerRepository createUerRepository;
+
     @Override
     public CreateUerModel save(CreateUerModel createUerModel) {
         return null;
@@ -18,7 +22,12 @@ public class CreateUserImpl implements ICreateUserService {
 
     @Override
     public Optional<CreateUerModel> findById(Long id) {
-        return Optional.empty();
+
+        if (Optional.empty().isEmpty()) {
+            return Optional.empty();
+        }
+        return createUerRepository.findById(id);
+
     }
 
     @Override
